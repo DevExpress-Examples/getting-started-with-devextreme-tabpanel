@@ -3,3 +3,17 @@
   width: 90vh;
 }
 
+#tabPanel {
+  height: 380px;
+  width: 500px;
+  border: 1px solid;
+}
+
+#textArea {
+  height: 100%;
+}
+
+.dx-multiview-item-container {
+  padding: 10px;
+}
+

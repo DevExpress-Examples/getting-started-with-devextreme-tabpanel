@@ -6,12 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular';
-  counter: number = 0;
-  buttonText: string = "Click count: 0";
-  
-  onClick(e:any){
-    this.counter++;
-    this.buttonText = "Click count: " + this.counter;
+  employeeData = {
+    name: 'John Heart',
+    position: 'CEO',
+    hireDate: new Date(2012, 4, 13),
+    officeNumber: 901,
+    notes: 'John has been in the Audio/Video industry since 1990.'
   }
+
+  radioGroupItems = ['Owner', 'Administrator', 'Manager']
 }

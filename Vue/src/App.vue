@@ -1,28 +1,88 @@
 <template>
-  <Home/>
+  <DxTabPanel
+    id="tabPanel"
+    :loop="true"
+    :animation-enabled="true" 
+    :swipe-enabled="true">
+    <DxItem title="Employee" icon="floppy">
+      <template #default>
+        <DxForm :form-data="employeeData">
+          <DxSimpleItem data-field="name" />
+          <DxSimpleItem data-field="position" />
+          <DxSimpleItem data-field="hireDate" />
+          <DxSimpleItem data-field="officeNumber" />
+        </DxForm>
+      </template>
+    </DxItem>
+    <DxItem title="Notes" icon="comment">
+      <template #default>
+        <DxTextArea 
+          id="textArea"
+          :value="employeeData.notes"
+        />
+      </template>
+    </DxItem>
+    <DxItem title="Role" icon="isnotblank" badge="new">
+      <template #default>
+        <DxRadioGroup 
+          :items="radioGroupItems"
+          value="Owner"
+        />
+      </template>
+    </DxItem>
+  </DxTabPanel>
 </template>
-
 <script>
-
 import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.material.blue.light.compact.css'
-import Home from './components/Home.vue'
+import 'devextreme/dist/css/dx.material.blue.light.compact.css';
+
+import DxTabPanel, { DxItem } from "devextreme-vue/tab-panel";
+import DxForm, { DxSimpleItem } from "devextreme-vue/form";
+import DxTextArea from "devextreme-vue/text-area";
+import DxRadioGroup from "devextreme-vue/radio-group";
+
 
 export default {
-  name: 'App',
   components: {
-    Home
-  }
-}
+    DxTabPanel,
+    DxItem,
+    DxForm,
+    DxSimpleItem,
+    DxTextArea,
+    DxRadioGroup
+  },
+  data() {
+    const employeeData = {
+      name: 'John Heart',
+      position: 'CEO',
+      hireDate: new Date(2012, 4, 13),
+      officeNumber: 901,
+      notes: 'John has been in the Audio/Video industry since 1990.'
+    };
+    const radioGroupItems = [
+      'Owner', 
+      'Administrator', 
+      'Manager'
+    ];
+    return {
+      employeeData,
+      radioGroupItems
+    };
+  },
+};
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin: 50px 50px;
-  width: 90vh;
+#tabPanel {
+  height: 380px;
+  width: 500px;
+  border: 1px solid;
+}
+
+#textArea {
+  height: 100%;
+}
+
+.dx-multiview-item-container {
+  padding: 10px;
 }
 </style>

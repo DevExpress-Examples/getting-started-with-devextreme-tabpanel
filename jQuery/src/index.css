@@ -2,3 +2,8 @@
     margin: 50px 50px;
     width: 90vh;
 }
+
+#tabPanel {
+    height: 250px;
+    width: 500px;
+}
