@@ -28,8 +28,8 @@
     <dxi-item title="Role" icon="isnotblank" badge="new">
       <div *dxTemplate>
           <dx-radio-group
-              [items]="radioGroupItems"
-              value="Owner">
+              [items]="employeeData.roles"
+              [value]="employeeData.roles[0]">
           </dx-radio-group>
       </div>
     </dxi-item>

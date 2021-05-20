@@ -1,9 +1,5 @@
 # React
 
-Take a look at the following files of this example to see the required code: 
-
-Your files go here
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

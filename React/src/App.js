@@ -12,14 +12,9 @@ const employeeData = {
   position: 'CEO',
   hireDate: new Date(2012, 4, 13),
   officeNumber: 901,
-  notes: 'John has been in the Audio/Video industry since 1990.'
+  notes: 'John has been in the Audio/Video industry since 1990. He has led DevAV as its CEO since 2003.',
+  roles: ['Chief Officer', 'Administrator', 'Manager']
 };
-
-const radioGroupItems = [
-  'Owner', 
-  'Administrator', 
-  'Manager'
-];
 
 function App() {
   return (
@@ -44,8 +39,8 @@ function App() {
         </Item>
         <Item title="Role" icon="isnotblank" badge="new">
           <RadioGroup 
-            items={radioGroupItems}
-            value="Owner"
+            items={employeeData.roles}
+            value={employeeData.roles[0]}
           />
         </Item>
     </TabPanel>

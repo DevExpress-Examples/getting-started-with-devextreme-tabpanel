@@ -6,44 +6,45 @@ $(function(){
         items: [{
             title: "Employee",
             icon: "floppy",
-            template: function (itemData, itemIndex, element) {
-                let formDiv = $("<div style='padding:15px'>")
-                formDiv.appendTo(element);
+            template: function (_, _, element) {
+                const formDiv = $("<div style='padding:15px'>")
                 formDiv.dxForm({
                     formData: employeeData,
                     items: ["name", "position", "hireDate", "officeNumber"]
-                }).dxForm('instance');
+                });
+                formDiv.appendTo(element);
             }
         }, {
             title: "Notes",
             icon: "comment",
-            template: function (itemData, itemIndex, element) {
-                let textAreaDiv = $("<div style='padding:15px; height: 100%'>")
-                textAreaDiv.appendTo(element);
+            template: function (_, _, element) {
+                const textAreaDiv = $("<div style='padding:15px; height: 100%'>")
                 textAreaDiv.dxTextArea({
                     value: employeeData.notes
-                }).dxTextArea('instance');
+                });
+                textAreaDiv.appendTo(element);
             }
         }, {
             title: "Role",
             icon: "isnotblank",
             badge: "new",
-            template: function (itemData, itemIndex, element) {
-                let radioGroupDiv = $("<div style='padding:15px'>")
-                radioGroupDiv.appendTo(element);
+            template: function (_, _, element) {
+                const radioGroupDiv = $("<div style='padding:15px'>")
                 radioGroupDiv.dxRadioGroup({
-                    items: ["Owner", "Administrator", "Manager"],
-                    value: "Owner"
-                }).dxRadioGroup('instance');
+                    items: employeeData.roles,
+                    value: employeeData.roles[0]
+                });
+                radioGroupDiv.appendTo(element);
             }
         }]
     });
 });
 
-let employeeData = {
+const employeeData = {
     name: 'John Heart',
     position: 'CEO',
     hireDate: new Date(2012, 4, 13),
     officeNumber: 901,
-    notes: 'John has been in the Audio/Video industry since 1990.'
+    notes: 'John has been in the Audio/Video industry since 1990. He has led DevAV as its CEO since 2003.',
+    roles: ["Chief Officer", "Manager", "Administrator"]
 };

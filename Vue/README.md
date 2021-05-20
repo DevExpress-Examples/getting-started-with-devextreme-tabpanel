@@ -1,9 +1,5 @@
 # Vue 
 
-Take a look at the following files of this example to see the required code: 
-
-- Your files go here
-
 This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/).
 
 ## Project setup
