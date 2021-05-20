@@ -19,7 +19,7 @@ const employeeData = {
 function App() {
   return (
     <TabPanel 
-      id="tabPanel"
+      id="tab-panel"
       loop={true}
       animationEnabled={true} 
       swipeEnabled={true}>

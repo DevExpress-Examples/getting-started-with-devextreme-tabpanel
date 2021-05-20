@@ -1,5 +1,5 @@
 $(function(){   
-    $("#tabPanel").dxTabPanel({
+    $("#tab-panel").dxTabPanel({
         loop: true,
         animationEnabled: true,
         swipeEnabled: true,

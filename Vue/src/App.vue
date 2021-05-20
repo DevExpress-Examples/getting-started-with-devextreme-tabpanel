@@ -1,6 +1,6 @@
 <template>
   <DxTabPanel
-    id="tabPanel"
+    id="tab-panel"
     :loop="true"
     :animation-enabled="true" 
     :swipe-enabled="true">
