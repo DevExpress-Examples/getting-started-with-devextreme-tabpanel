@@ -33,7 +33,6 @@ function App() {
         </Item>
         <Item title="Notes" icon="comment">
           <TextArea 
-            id="textArea"
             defaultValue={employeeData.notes}
           />
         </Item>

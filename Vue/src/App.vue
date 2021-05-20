@@ -17,8 +17,7 @@
     <DxItem title="Notes" icon="comment">
       <template #default>
         <DxTextArea 
-          id="textArea"
-          :value="employeeData.notes"
+          v-model:value="employeeData.notes"
         />
       </template>
     </DxItem>
