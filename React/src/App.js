@@ -1,5 +1,5 @@
 import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.material.blue.light.compact.css';
+import 'devextreme/dist/css/dx.light.css';
 import './App.css';
 
 import TabPanel, { Item } from "devextreme-react/tab-panel";
@@ -34,13 +34,13 @@ function App() {
         <Item title="Notes" icon="comment">
           <TextArea 
             id="textArea"
-            value={employeeData.notes}
+            defaultValue={employeeData.notes}
           />
         </Item>
         <Item title="Role" icon="isnotblank" badge="new">
           <RadioGroup 
             items={employeeData.roles}
-            value={employeeData.roles[0]}
+            defaultValue={employeeData.roles[0]}
           />
         </Item>
     </TabPanel>

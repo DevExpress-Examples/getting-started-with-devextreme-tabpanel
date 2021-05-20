@@ -20,7 +20,7 @@
       <div *dxTemplate>
           <dx-text-area
               id="textArea"
-              [value]="employeeData.notes">
+              [(value)]="employeeData.notes">
           </dx-text-area>
       </div>
     </dxi-item>
@@ -29,7 +29,7 @@
       <div *dxTemplate>
           <dx-radio-group
               [items]="employeeData.roles"
-              [value]="employeeData.roles[0]">
+              [(value)]="employeeData.roles[0]">
           </dx-radio-group>
       </div>
     </dxi-item>

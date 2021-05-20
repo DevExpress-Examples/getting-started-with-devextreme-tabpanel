@@ -26,7 +26,7 @@
       <template #default>
         <DxRadioGroup 
           :items="employeeData.roles"
-          :value="employeeData.roles[0]"
+          v-model:value="employeeData.roles[0]"
         />
       </template>
     </DxItem>
@@ -34,7 +34,7 @@
 </template>
 <script>
 import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.material.blue.light.compact.css';
+import 'devextreme/dist/css/dx.light.css';
 
 import DxTabPanel, { DxItem } from "devextreme-vue/tab-panel";
 import DxForm, { DxSimpleItem } from "devextreme-vue/form";
