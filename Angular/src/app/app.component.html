@@ -1,6 +1,6 @@
 <div id="app-container">
   <dx-tab-panel 
-    id="tab-panel"
+    id="tabPanel"
     [loop]="true"
     [animationEnabled]="true"
     [swipeEnabled]="true">    
@@ -19,6 +19,7 @@
     <dxi-item title="Notes" icon="comment">
       <div *dxTemplate>
           <dx-text-area
+              id="textArea"
               [(value)]="employeeData.notes">
           </dx-text-area>
       </div>

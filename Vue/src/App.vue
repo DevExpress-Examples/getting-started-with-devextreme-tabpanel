@@ -1,6 +1,6 @@
 <template>
   <DxTabPanel
-    id="tab-panel"
+    id="tabPanel"
     :loop="true"
     :animation-enabled="true" 
     :swipe-enabled="true">
@@ -17,6 +17,7 @@
     <DxItem title="Notes" icon="comment">
       <template #default>
         <DxTextArea 
+          id="textArea"
           v-model:value="employeeData.notes"
         />
       </template>
