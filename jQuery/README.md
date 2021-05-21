@@ -8,12 +8,6 @@ Download the example and use NPM to install required libraries.
 npm install
 ```
 
-## Code
-
-Take a look at the following files of this example to see the required code: 
-
-Your files go here
-
 ## Development server
 
 Run the `npm run start` command to run the development server. Use the following link to check the example:
