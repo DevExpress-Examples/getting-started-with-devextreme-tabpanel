@@ -22,7 +22,8 @@ function App() {
       id="tabPanel"
       loop={true}
       animationEnabled={true} 
-      swipeEnabled={true}>
+      swipeEnabled={true}
+      selectedIndex={0}>
         <Item title="Employee" icon="floppy">
           <Form formData={employeeData}>
             <SimpleItem dataField="name" />

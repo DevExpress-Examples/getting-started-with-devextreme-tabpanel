@@ -3,7 +3,8 @@
     id="tabPanel"
     :loop="true"
     :animation-enabled="true" 
-    :swipe-enabled="true">
+    :swipe-enabled="true"
+    :selected-index="0">
     <DxItem title="Employee" icon="floppy">
       <template #default>
         <DxForm :form-data="employeeData">
