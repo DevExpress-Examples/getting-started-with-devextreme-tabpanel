@@ -4,7 +4,7 @@
     [loop]="true"
     [animationEnabled]="true"
     [swipeEnabled]="true"
-    [selectedIndex]="0">    
+    [(selectedIndex)]="selectedTabIndex">    
     <dxi-item title="Employee" icon="floppy">
         <div *dxTemplate>
             <dx-form
@@ -16,7 +16,6 @@
             </dx-form>
         </div>
     </dxi-item>
-    
     <dxi-item title="Notes" icon="comment">
       <div *dxTemplate>
           <dx-text-area
@@ -25,7 +24,6 @@
           </dx-text-area>
       </div>
     </dxi-item>
-
     <dxi-item title="Role" icon="isnotblank" badge="new">
       <div *dxTemplate>
           <dx-radio-group
@@ -34,7 +32,13 @@
           </dx-radio-group>
       </div>
     </dxi-item>
-
   </dx-tab-panel>
+
+  <dx-radio-group
+        [items]="tabNames"
+        [value]="tabNames[selectedTabIndex]"
+        layout="horizontal"
+        (onValueChanged)="onValueChanged($event)">
+    </dx-radio-group>
 </div>
 

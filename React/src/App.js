@@ -1,3 +1,5 @@
+import React, { useState, useCallback } from 'react';
+
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import './App.css';
@@ -16,35 +18,57 @@ const employeeData = {
   roles: ['Chief Officer', 'Administrator', 'Manager']
 };
 
+const tabNames = ['Employee', 'Notes', 'Role'];
+
 function App() {
+  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+ 
+  const onRadioGroupValueChanged = useCallback((e) => {
+    setSelectedTabIndex(tabNames.indexOf(e.value));
+  }, []);
+
+  const onTabSelectionChanged = useCallback((e) => {
+    setSelectedTabIndex(tabNames.indexOf(e.addedItems[0].title));
+  }, []);
+
   return (
-    <TabPanel 
-      id="tabPanel"
-      loop={true}
-      animationEnabled={true} 
-      swipeEnabled={true}
-      selectedIndex={0}>
-        <Item title="Employee" icon="floppy">
-          <Form formData={employeeData}>
-            <SimpleItem dataField="name" />
-            <SimpleItem dataField="position" />
-            <SimpleItem dataField="hireDate" />
-            <SimpleItem dataField="officeNumber" />
-          </Form>
-        </Item>
-        <Item title="Notes" icon="comment">
-          <TextArea 
-            id="textArea"
-            defaultValue={employeeData.notes}
-          />
-        </Item>
-        <Item title="Role" icon="isnotblank" badge="new">
-          <RadioGroup 
-            items={employeeData.roles}
-            defaultValue={employeeData.roles[0]}
-          />
-        </Item>
-    </TabPanel>
+    <div>
+      <TabPanel 
+        id="tabPanel"
+        loop={true}
+        animationEnabled={true} 
+        swipeEnabled={true}
+        selectedIndex={selectedTabIndex}
+        onSelectionChanged={onTabSelectionChanged}>
+          <Item title="Employee" icon="floppy">
+            <Form formData={employeeData}>
+              <SimpleItem dataField="name" />
+              <SimpleItem dataField="position" />
+              <SimpleItem dataField="hireDate" />
+              <SimpleItem dataField="officeNumber" />
+            </Form>
+          </Item>
+          <Item title="Notes" icon="comment">
+            <TextArea 
+              id="textArea"
+              defaultValue={employeeData.notes}
+            />
+          </Item>
+          <Item title="Role" icon="isnotblank" badge="new">
+            <RadioGroup 
+              items={employeeData.roles}
+              defaultValue={employeeData.roles[0]}
+            />
+          </Item>
+      </TabPanel>
+
+      <RadioGroup 
+        items={tabNames}
+        value={tabNames[selectedTabIndex]}
+        layout="horizontal"
+        onValueChanged={onRadioGroupValueChanged}
+      />
+    </div>
   )
 }
 

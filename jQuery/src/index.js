@@ -1,9 +1,13 @@
 $(function(){   
-    $("#tabPanel").dxTabPanel({
+    let tabPanel = $("#tabPanel").dxTabPanel({
         loop: true,
         animationEnabled: true,
         swipeEnabled: true,
         selectedIndex: 0,
+        onSelectionChanged: function(e) {
+            const selectedTab = e.addedItems[0].title;
+            tabSwitcherRadioGroup.option("value", selectedTab);
+        },
         items: [{
             title: "Employee",
             icon: "floppy",
@@ -38,7 +42,17 @@ $(function(){
                 radioGroupDiv.appendTo(element);
             }
         }]
-    });
+    }).dxTabPanel("instance");
+
+    let tabSwitcherRadioGroup = $("#radioGroup").dxRadioGroup({
+        items: tabNames,
+        value: tabNames[0],
+        layout: "horizontal",
+        onValueChanged: function(e) {
+            const selectedTabIndex = tabNames.indexOf(e.value);
+            tabPanel.option("selectedIndex", selectedTabIndex);
+        }
+    }).dxRadioGroup("instance");
 });
 
 const employeeData = {
@@ -49,3 +63,5 @@ const employeeData = {
     notes: "John has been in the Audio/Video industry since 1990. He has led DevAV as its CEO since 2003.",
     roles: ["Chief Officer", "Manager", "Administrator"]
 };
+
+const tabNames = ["Employee", "Notes", "Role"];
