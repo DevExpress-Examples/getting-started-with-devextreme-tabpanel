@@ -70,7 +70,7 @@ export default {
       hireDate: new Date(2012, 4, 13),
       officeNumber: 901,
       notes: 'John has been in the Audio/Video industry since 1990. He has led DevAV as its CEO since 2003.',
-      roles: ['Chief Officer', 'Manager', 'Administrator']
+      roles: ['Chief Officer', 'Administrator', 'Manager']
     };
 
     const tabNames = ['Employee', 'Notes', 'Role'];
@@ -90,7 +90,7 @@ export default {
 </script>
 <style>
 #tabPanel {
-  height: 380px;
+  height: 250px;
   width: 500px;
   border: 1px solid;
 }
