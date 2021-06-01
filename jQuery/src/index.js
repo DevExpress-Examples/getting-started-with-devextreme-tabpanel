@@ -1,5 +1,5 @@
 $(function(){   
-    let tabPanel = $("#tabPanel").dxTabPanel({
+    const tabPanel = $("#tabPanel").dxTabPanel({
         loop: true,
         animationEnabled: true,
         swipeEnabled: true,
@@ -44,7 +44,7 @@ $(function(){
         }]
     }).dxTabPanel("instance");
 
-    let tabSwitcherRadioGroup = $("#radioGroup").dxRadioGroup({
+    const tabSwitcherRadioGroup = $("#radioGroup").dxRadioGroup({
         items: tabNames,
         value: tabNames[0],
         layout: "horizontal",
