@@ -41,7 +41,9 @@ function App() {
         selectedIndex={selectedTabIndex}
         onSelectionChanged={onTabSelectionChanged}>
           <Item title="Employee" icon="floppy">
-            <Form formData={employeeData}>
+            <Form 
+              id="form"
+              formData={employeeData}>
               <SimpleItem dataField="name" />
               <SimpleItem dataField="position" />
               <SimpleItem dataField="hireDate" />
@@ -56,6 +58,7 @@ function App() {
           </Item>
           <Item title="Role" icon="isnotblank" badge="new">
             <RadioGroup 
+              id="radioGroup"
               items={employeeData.roles}
               defaultValue={employeeData.roles[0]}
             />

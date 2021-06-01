@@ -8,6 +8,7 @@
         <dxi-item title="Employee" icon="floppy">
             <div *dxTemplate>
                 <dx-form
+                    id="form"
                     [formData]="employeeData">
                     <dxi-item dataField="name"></dxi-item>
                     <dxi-item dataField="position"></dxi-item>
@@ -27,6 +28,7 @@
         <dxi-item title="Role" icon="isnotblank" badge="new">
             <div *dxTemplate>
                 <dx-radio-group
+                    id="radioGroup"
                     [items]="employeeData.roles"
                     [(value)]="employeeData.roles[0]">
                 </dx-radio-group>

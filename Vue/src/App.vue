@@ -8,7 +8,9 @@
       v-model:selected-index="selectedTabIndex">
       <DxItem title="Employee" icon="floppy">
         <template #default>
-          <DxForm :form-data="employeeData">
+          <DxForm 
+            id="form"
+            :form-data="employeeData">
             <DxSimpleItem data-field="name" />
             <DxSimpleItem data-field="position" />
             <DxSimpleItem data-field="hireDate" />
@@ -27,6 +29,7 @@
       <DxItem title="Role" icon="isnotblank" badge="new">
         <template #default>
           <DxRadioGroup 
+            id="radioGroup"
             :items="employeeData.roles"
             v-model:value="employeeData.roles[0]"
           />
@@ -92,11 +95,12 @@ export default {
   border: 1px solid;
 }
 
-#textArea {
-  height: 100%;
+#form, #radioGroup {
+    padding: 15px; 
 }
 
-.dx-multiview-item-container {
-  padding: 10px;
+#textArea {
+  padding: 15px; 
+  height: 100%;
 }
 </style>

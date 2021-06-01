@@ -4,11 +4,11 @@
     border: 1px solid;
 }
 
+#form, #radioGroup {
+    padding: 15px; 
+}
+
 #textArea {
+    padding: 15px; 
     height: 100%;
 }
-
-::ng-deep .dx-multiview-item-container {
-    padding: 10px;
-}
-
