@@ -1,9 +1,14 @@
-.demo-container {
-    margin: 50px 50px;
-    width: 90vh;
-}
-
 #tabPanel {
     height: 250px;
     width: 500px;
+    border: 1px solid;
+}
+
+#form, #radioGroup {
+    padding: 15px; 
+}
+
+#textArea {
+    padding: 15px; 
+    height: 100%;
 }

@@ -1,37 +1,49 @@
 <template>
-  <DxTabPanel
-    id="tabPanel"
-    :loop="true"
-    :animation-enabled="true" 
-    :swipe-enabled="true"
-    :selected-index="0">
-    <DxItem title="Employee" icon="floppy">
-      <template #default>
-        <DxForm :form-data="employeeData">
-          <DxSimpleItem data-field="name" />
-          <DxSimpleItem data-field="position" />
-          <DxSimpleItem data-field="hireDate" />
-          <DxSimpleItem data-field="officeNumber" />
-        </DxForm>
-      </template>
-    </DxItem>
-    <DxItem title="Notes" icon="comment">
-      <template #default>
-        <DxTextArea 
-          id="textArea"
-          v-model:value="employeeData.notes"
-        />
-      </template>
-    </DxItem>
-    <DxItem title="Role" icon="isnotblank" badge="new">
-      <template #default>
-        <DxRadioGroup 
-          :items="employeeData.roles"
-          v-model:value="employeeData.roles[0]"
-        />
-      </template>
-    </DxItem>
-  </DxTabPanel>
+  <div>
+    <DxTabPanel
+      id="tabPanel"
+      :loop="true"
+      :animation-enabled="true" 
+      :swipe-enabled="true"
+      v-model:selected-index="selectedTabIndex">
+      <DxItem title="Employee" icon="floppy">
+        <template #default>
+          <DxForm 
+            id="form"
+            :form-data="employeeData">
+            <DxSimpleItem data-field="name" />
+            <DxSimpleItem data-field="position" />
+            <DxSimpleItem data-field="hireDate" />
+            <DxSimpleItem data-field="officeNumber" />
+          </DxForm>
+        </template>
+      </DxItem>
+      <DxItem title="Notes" icon="comment">
+        <template #default>
+          <DxTextArea 
+            id="textArea"
+            v-model:value="employeeData.notes"
+          />
+        </template>
+      </DxItem>
+      <DxItem title="Role" icon="isnotblank" badge="new">
+        <template #default>
+          <DxRadioGroup 
+            id="radioGroup"
+            :items="employeeData.roles"
+            v-model:value="employeeData.roles[0]"
+          />
+        </template>
+      </DxItem>
+    </DxTabPanel>
+
+    <DxRadioGroup 
+      :items="tabNames"
+      :value="tabNames[selectedTabIndex]"
+      layout="horizontal"
+      @value-changed="onValueChanged"
+    />
+  </div>
 </template>
 <script>
 import 'devextreme/dist/css/dx.common.css';
@@ -58,26 +70,37 @@ export default {
       hireDate: new Date(2012, 4, 13),
       officeNumber: 901,
       notes: 'John has been in the Audio/Video industry since 1990. He has led DevAV as its CEO since 2003.',
-      roles: ['Chief Officer', 'Manager', 'Administrator']
+      roles: ['Chief Officer', 'Administrator', 'Manager']
     };
+
+    const tabNames = ['Employee', 'Notes', 'Role'];
+
     return {
-      employeeData
+      employeeData,
+      selectedTabIndex: 0,
+      tabNames
     };
   },
+  methods: {
+    onValueChanged(e){
+      this.selectedTabIndex = this.tabNames.indexOf(e.value);
+    }
+  }
 };
 </script>
 <style>
 #tabPanel {
-  height: 380px;
+  height: 250px;
   width: 500px;
   border: 1px solid;
 }
 
-#textArea {
-  height: 100%;
+#form, #radioGroup {
+    padding: 15px; 
 }
 
-.dx-multiview-item-container {
-  padding: 10px;
+#textArea {
+  padding: 15px; 
+  height: 100%;
 }
 </style>

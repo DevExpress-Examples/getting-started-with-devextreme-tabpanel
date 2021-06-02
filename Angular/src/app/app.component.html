@@ -1,40 +1,46 @@
 <div id="app-container">
-  <dx-tab-panel 
-    id="tabPanel"
-    [loop]="true"
-    [animationEnabled]="true"
-    [swipeEnabled]="true"
-    [selectedIndex]="0">    
-    <dxi-item title="Employee" icon="floppy">
-        <div *dxTemplate>
-            <dx-form
-                [formData]="employeeData">
-                <dxi-item dataField="name"></dxi-item>
-                <dxi-item dataField="position"></dxi-item>
-                <dxi-item dataField="hireDate"></dxi-item>
-                <dxi-item dataField="officeNumber"></dxi-item>      
-            </dx-form>
-        </div>
-    </dxi-item>
-    
-    <dxi-item title="Notes" icon="comment">
-      <div *dxTemplate>
-          <dx-text-area
-              id="textArea"
-              [(value)]="employeeData.notes">
-          </dx-text-area>
-      </div>
-    </dxi-item>
+    <dx-tab-panel 
+        id="tabPanel"
+        [loop]="true"
+        [animationEnabled]="true"
+        [swipeEnabled]="true"
+        [(selectedIndex)]="selectedTabIndex">    
+        <dxi-item title="Employee" icon="floppy">
+            <div *dxTemplate>
+                <dx-form
+                    id="form"
+                    [formData]="employeeData">
+                    <dxi-item dataField="name"></dxi-item>
+                    <dxi-item dataField="position"></dxi-item>
+                    <dxi-item dataField="hireDate"></dxi-item>
+                    <dxi-item dataField="officeNumber"></dxi-item>      
+                </dx-form>
+            </div>
+        </dxi-item>
+        <dxi-item title="Notes" icon="comment">
+            <div *dxTemplate>
+                <dx-text-area
+                    id="textArea"
+                    [(value)]="employeeData.notes">
+                </dx-text-area>
+            </div>
+        </dxi-item>
+        <dxi-item title="Role" icon="isnotblank" badge="new">
+            <div *dxTemplate>
+                <dx-radio-group
+                    id="radioGroup"
+                    [items]="employeeData.roles"
+                    [(value)]="employeeData.roles[0]">
+                </dx-radio-group>
+            </div>
+        </dxi-item>
+    </dx-tab-panel>
 
-    <dxi-item title="Role" icon="isnotblank" badge="new">
-      <div *dxTemplate>
-          <dx-radio-group
-              [items]="employeeData.roles"
-              [(value)]="employeeData.roles[0]">
-          </dx-radio-group>
-      </div>
-    </dxi-item>
-
-  </dx-tab-panel>
+    <dx-radio-group
+        [items]="tabNames"
+        [value]="tabNames[selectedTabIndex]"
+        layout="horizontal"
+        (onValueChanged)="onValueChanged($event)">
+    </dx-radio-group>
 </div>
 
