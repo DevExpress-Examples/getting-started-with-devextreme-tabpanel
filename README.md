@@ -3,9 +3,6 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1000242)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# getting-started-with-tab-panel
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/359453843/)**
-<!-- run online end -->
+# Getting Started with DevExtreme TabPanel
 
 This repository stores the source code for the [Getting Started with TabPanel](https://js.devexpress.com/Documentation/Guide/UI_Components/TabPanel/Getting_Started_with_TabPanel/) tutorial.

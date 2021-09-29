@@ -1,4 +1,6 @@
-# jQuery
+# Getting Started with DevExtreme jQuery TabPanel
+
+This repository stores jQuery source code for the [Getting Started with TabPanel](https://js.devexpress.com/Documentation/Guide/UI_Components/TabPanel/Getting_Started_with_TabPanel/) tutorial.
 
 ## Installation
 

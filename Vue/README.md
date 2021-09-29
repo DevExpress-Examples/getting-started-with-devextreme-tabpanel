@@ -1,4 +1,6 @@
-# Vue 
+# Getting Started with DevExtreme Vue TabPanel
+
+This repository stores Vue source code for the [Getting Started with TabPanel](https://js.devexpress.com/Documentation/Guide/UI_Components/TabPanel/Getting_Started_with_TabPanel/) tutorial.
 
 This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/).
 
