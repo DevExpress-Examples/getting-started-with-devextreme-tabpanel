@@ -11,10 +11,25 @@
           <DxForm 
             id="form"
             :form-data="employeeData">
-            <DxSimpleItem data-field="name" />
-            <DxSimpleItem data-field="position" />
+            <DxSimpleItem data-field="name">
+              <DxLabel template="nameLabel"/>
+            </DxSimpleItem>
+            <DxSimpleItem data-field="position">
+              <DxLabel template="positionLabel"/>
+            </DxSimpleItem>
             <DxSimpleItem data-field="hireDate" />
-            <DxSimpleItem data-field="officeNumber" />
+            <DxSimpleItem data-field="officeNumber">
+              <DxLabel template="officeNumberLabel"/>
+            </DxSimpleItem>
+            <template #nameLabel="{ data }">
+              <i class="dx-icon dx-icon-user"/>{{ data.text }}
+            </template>
+            <template #positionLabel="{ data }">
+              <i class="dx-icon dx-icon-group"/>{{ data.text }}
+            </template>
+            <template #officeNumberLabel="{ data }">
+              <i class="dx-icon dx-icon-info"/>{{ data.text }}
+            </template>
           </DxForm>
         </template>
       </DxItem>
@@ -50,7 +65,7 @@ import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 
 import DxTabPanel, { DxItem } from "devextreme-vue/tab-panel";
-import DxForm, { DxSimpleItem } from "devextreme-vue/form";
+import DxForm, { DxSimpleItem, DxLabel } from "devextreme-vue/form";
 import DxTextArea from "devextreme-vue/text-area";
 import DxRadioGroup from "devextreme-vue/radio-group";
 
@@ -60,6 +75,7 @@ export default {
     DxItem,
     DxForm,
     DxSimpleItem,
+    DxLabel,
     DxTextArea,
     DxRadioGroup
   },

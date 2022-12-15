@@ -1,11 +1,10 @@
 import React, { useState, useCallback } from 'react';
 
-import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import './App.css';
 
 import TabPanel, { Item } from "devextreme-react/tab-panel";
-import Form, { SimpleItem } from "devextreme-react/form";
+import Form, { SimpleItem, Label } from "devextreme-react/form";
 import TextArea from "devextreme-react/text-area";
 import RadioGroup from "devextreme-react/radio-group";
 
@@ -19,6 +18,12 @@ const employeeData = {
 };
 
 const tabNames = ['Employee', 'Notes', 'Role'];
+
+const labelTemplate = (iconName) => {
+  return function template(data) {
+    return (<div><i className={`dx-icon dx-icon-${iconName}`}></i>{ data.text }</div>);
+  };
+}
 
 function App() {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
@@ -44,10 +49,16 @@ function App() {
             <Form 
               id="form"
               formData={employeeData}>
-              <SimpleItem dataField="name" />
-              <SimpleItem dataField="position" />
+              <SimpleItem dataField="name">
+                <Label render={labelTemplate('user')} />
+              </SimpleItem>
+              <SimpleItem dataField="position">
+                <Label render={labelTemplate('group')} />
+              </SimpleItem>
               <SimpleItem dataField="hireDate" />
-              <SimpleItem dataField="officeNumber" />
+              <SimpleItem dataField="officeNumber">
+                <Label render={labelTemplate('info')} />
+              </SimpleItem>
             </Form>
           </Item>
           <Item title="Notes" icon="comment">
