@@ -15,6 +15,12 @@ export class AppComponent {
     roles: ['Chief Officer', 'Administrator', 'Manager']
   }
 
+  labelTemplates = [
+    {name: 'name', icon: 'dx-icon-info'},
+    {name: 'position', icon: 'dx-icon-group'},
+    {name: 'officeNumber', icon: 'dx-icon-info'}
+  ]
+
   tabNames = ['Employee', 'Notes', 'Role']
 
   selectedTabIndex = 0;

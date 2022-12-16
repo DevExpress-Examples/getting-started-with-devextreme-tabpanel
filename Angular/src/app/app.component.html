@@ -10,10 +10,21 @@
                 <dx-form
                     id="form"
                     [formData]="employeeData">
-                    <dxi-item dataField="name"></dxi-item>
-                    <dxi-item dataField="position"></dxi-item>
-                    <dxi-item dataField="hireDate"></dxi-item>
-                    <dxi-item dataField="officeNumber"></dxi-item>      
+                    <dxi-item dataField="name">
+                        <dxo-label template="name"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="position">
+                        <dxo-label template="position"></dxo-label>
+                    </dxi-item>
+                    <<dxi-item dataField="hireDate"></dxi-item>
+                    <dxi-item dataField="officeNumber">
+                        <dxo-label template="officeNumber"></dxo-label>
+                    </dxi-item>
+                    <ng-container *ngFor="let label of labelTemplates">
+                        <div *dxTemplate="let data of label.name">
+                            <div><i class="dx-icon {{ label.icon }}"></i>{{ data.text }}</div>
+                        </div>
+                    </ng-container>
                 </dx-form>
             </div>
         </dxi-item>
