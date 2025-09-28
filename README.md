@@ -8,7 +8,7 @@
 
 This repository stores the code examples of the TabPanel component for the [Getting Started with TabPanel](https://js.devexpress.com/Documentation/Guide/UI_Components/TabPanel/Getting_Started_with_TabPanel/) tutorial. This tutorial explains how to add a TabPanel to a page, create tabs, specify view content, and navigate between tabs.
 
-<div align="center"><img src="./tabpanel.gif" /></div>
+<div align="center"><img src="images/tabpanel.gif" /></div>
 
 ## Files to Review
 
