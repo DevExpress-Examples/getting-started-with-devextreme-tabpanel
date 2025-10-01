@@ -1,0 +1,57 @@
+<div id="app-container">
+    <dx-tab-panel 
+        id="tabPanel"
+        [loop]="true"
+        [animationEnabled]="true"
+        [swipeEnabled]="true"
+        [(selectedIndex)]="selectedTabIndex">    
+        <dxi-item title="Employee" icon="floppy">
+            <div *dxTemplate>
+                <dx-form
+                    id="form"
+                    [formData]="employeeData">
+                    <dxi-item dataField="name">
+                        <dxo-label template="name"></dxo-label>
+                    </dxi-item>
+                    <dxi-item dataField="position">
+                        <dxo-label template="position"></dxo-label>
+                    </dxi-item>
+                    <<dxi-item dataField="hireDate"></dxi-item>
+                    <dxi-item dataField="officeNumber">
+                        <dxo-label template="officeNumber"></dxo-label>
+                    </dxi-item>
+                    <ng-container *ngFor="let label of labelTemplates">
+                        <div *dxTemplate="let data of label.name">
+                            <div><i class="dx-icon {{ label.icon }}"></i>{{ data.text }}</div>
+                        </div>
+                    </ng-container>
+                </dx-form>
+            </div>
+        </dxi-item>
+        <dxi-item title="Notes" icon="comment">
+            <div *dxTemplate>
+                <dx-text-area
+                    id="textArea"
+                    [(value)]="employeeData.notes">
+                </dx-text-area>
+            </div>
+        </dxi-item>
+        <dxi-item title="Role" icon="isnotblank" badge="new">
+            <div *dxTemplate>
+                <dx-radio-group
+                    id="radioGroup"
+                    [items]="employeeData.roles"
+                    [(value)]="employeeData.roles[0]">
+                </dx-radio-group>
+            </div>
+        </dxi-item>
+    </dx-tab-panel>
+
+    <dx-radio-group
+        [items]="tabNames"
+        [value]="tabNames[selectedTabIndex]"
+        layout="horizontal"
+        (onValueChanged)="onValueChanged($event)">
+    </dx-radio-group>
+</div>
+
