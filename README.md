@@ -12,15 +12,16 @@ This repository stores the code examples of the TabPanel component for the [Gett
 
 ## Files to Review
 
+- **jQuery**
+    - [index.js](jQuery/src/index.js)
 - **Angular**
     - [app.component.html](Angular/src/app/app.component.html)
     - [app.component.ts](Angular/src/app/app.component.ts)
-- **jQuery**
-    - [index.js](jQuery/src/index.js)
 - **React**
-    - [App.js](React/src/App.js)
+    - [App.tsx](React/src/App.tsx)
 - **Vue**
     - [App.vue](Vue/src/App.vue)
+    - [TabPanelContent.vue](Vue/src/components/TabPanelContent.vue)
 
 ## Documentation
 

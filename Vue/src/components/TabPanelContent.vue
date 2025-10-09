@@ -3,21 +3,26 @@
     <DxTabPanel
       id="tabPanel"
       :loop="true"
-      :animation-enabled="true" 
+      :animation-enabled="true"
       :swipe-enabled="true"
-      v-model:selected-index="selectedTabIndex">
-      <DxItem title="Employee" icon="floppy">
+      v-model:selected-index="selectedTabIndex"
+    >
+      <DxItem
+        title="Employee"
+        icon="floppy"
+      >
         <template #default>
-          <DxForm 
+          <DxForm
             id="form"
-            :form-data="employeeData">
+            :form-data="employeeData"
+          >
             <DxSimpleItem data-field="name">
               <DxLabel template="nameLabel"/>
             </DxSimpleItem>
             <DxSimpleItem data-field="position">
               <DxLabel template="positionLabel"/>
             </DxSimpleItem>
-            <DxSimpleItem data-field="hireDate" />
+            <DxSimpleItem data-field="hireDate"/>
             <DxSimpleItem data-field="officeNumber">
               <DxLabel template="officeNumberLabel"/>
             </DxSimpleItem>
@@ -33,17 +38,24 @@
           </DxForm>
         </template>
       </DxItem>
-      <DxItem title="Notes" icon="comment">
+      <DxItem
+        title="Notes"
+        icon="comment"
+      >
         <template #default>
-          <DxTextArea 
+          <DxTextArea
             id="textArea"
             v-model:value="employeeData.notes"
           />
         </template>
       </DxItem>
-      <DxItem title="Role" icon="isnotblank" badge="new">
+      <DxItem
+        title="Role"
+        icon="isnotblank"
+        badge="new"
+      >
         <template #default>
-          <DxRadioGroup 
+          <DxRadioGroup
             id="radioGroup"
             :items="employeeData.roles"
             v-model:value="employeeData.roles[0]"
@@ -52,7 +64,7 @@
       </DxItem>
     </DxTabPanel>
 
-    <DxRadioGroup 
+    <DxRadioGroup
       :items="tabNames"
       :value="tabNames[selectedTabIndex]"
       layout="horizontal"
@@ -60,14 +72,12 @@
     />
   </div>
 </template>
-<script>
-import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.light.css';
 
-import DxTabPanel, { DxItem } from "devextreme-vue/tab-panel";
-import DxForm, { DxSimpleItem, DxLabel } from "devextreme-vue/form";
-import DxTextArea from "devextreme-vue/text-area";
-import DxRadioGroup from "devextreme-vue/radio-group";
+<script>
+import DxTabPanel, { DxItem } from 'devextreme-vue/tab-panel';
+import DxForm, { DxSimpleItem, DxLabel } from 'devextreme-vue/form';
+import DxTextArea from 'devextreme-vue/text-area';
+import DxRadioGroup from 'devextreme-vue/radio-group';
 
 export default {
   components: {
@@ -77,7 +87,7 @@ export default {
     DxSimpleItem,
     DxLabel,
     DxTextArea,
-    DxRadioGroup
+    DxRadioGroup,
   },
   data() {
     const employeeData = {
@@ -85,8 +95,9 @@ export default {
       position: 'CEO',
       hireDate: new Date(2012, 4, 13),
       officeNumber: 901,
-      notes: 'John has been in the Audio/Video industry since 1990. He has led DevAV as its CEO since 2003.',
-      roles: ['Chief Officer', 'Administrator', 'Manager']
+      notes:
+        'John has been in the Audio/Video industry since 1990. He has led DevAV as its CEO since 2003.',
+      roles: ['Chief Officer', 'Administrator', 'Manager'],
     };
 
     const tabNames = ['Employee', 'Notes', 'Role'];
@@ -94,29 +105,31 @@ export default {
     return {
       employeeData,
       selectedTabIndex: 0,
-      tabNames
+      tabNames,
     };
   },
   methods: {
-    onValueChanged(e){
+    onValueChanged(e) {
       this.selectedTabIndex = this.tabNames.indexOf(e.value);
-    }
-  }
+    },
+  },
 };
 </script>
-<style>
+
+<style scoped>
 #tabPanel {
   height: 250px;
   width: 500px;
   border: 1px solid;
 }
 
-#form, #radioGroup {
-    padding: 15px; 
+#form,
+#radioGroup {
+  padding: 15px;
 }
 
 #textArea {
-  padding: 15px; 
+  padding: 15px;
   height: 100%;
 }
 </style>

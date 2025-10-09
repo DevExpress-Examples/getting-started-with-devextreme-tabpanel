@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import { mount } from '@vue/test-utils';
-import Content from '../HomeContent.vue';
+import Content from '../TabPanelContent.vue';
 
 describe('Content', () => {
   it('renders properly', () => {

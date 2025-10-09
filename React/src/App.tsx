@@ -1,16 +1,101 @@
-import { useCallback, useState } from 'react';
-import './App.css';
+import { useState, useCallback } from 'react';
+
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-import Button from 'devextreme-react/button';
+import './App.css';
+
+import TabPanel, { Item } from 'devextreme-react/tab-panel';
+import Form, { SimpleItem, Label } from 'devextreme-react/form';
+import TextArea from 'devextreme-react/text-area';
+import RadioGroup from 'devextreme-react/radio-group';
+import type { TabPanelTypes } from 'devextreme-react/tab-panel';
+import type { RadioGroupTypes } from 'devextreme-react/radio-group';
+
+const employeeData = {
+  name: 'John Heart',
+  position: 'CEO',
+  hireDate: new Date(2012, 4, 13),
+  officeNumber: 901,
+  notes:
+    'John has been in the Audio/Video industry since 1990. He has led DevAV as its CEO since 2003.',
+  roles: ['Chief Officer', 'Administrator', 'Manager'],
+};
+
+const tabNames = ['Employee', 'Notes', 'Role'];
+
+function labelTemplate(iconName: string) {
+  return function Template(data: { text: string }): JSX.Element {
+    return (
+      <div>
+        <i className={`dx-icon dx-icon-${iconName}`}></i>
+        {data.text}
+      </div>
+    );
+  };
+}
 
 function App(): JSX.Element {
-  var [count, setCount] = useState<number>(0);
-  const clickHandler = useCallback(() => {
-    setCount((prev) => prev + 1);
-  }, [setCount]);
+  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+
+  const onRadioGroupValueChanged = useCallback(
+    (e: RadioGroupTypes.ValueChangedEvent) => {
+      setSelectedTabIndex(tabNames.indexOf(e.value));
+    },
+    [],
+  );
+
+  const onTabSelectionChanged = useCallback(
+    (e: TabPanelTypes.SelectionChangedEvent) => {
+      setSelectedTabIndex(tabNames.indexOf(e.addedItems[0].title));
+    },
+    [],
+  );
+
   return (
-    <div className="main">
-      <Button text={`Click count: ${count}`} onClick={clickHandler} />
+    <div>
+      <TabPanel
+        id="tabPanel"
+        loop={true}
+        animationEnabled={true}
+        swipeEnabled={true}
+        selectedIndex={selectedTabIndex}
+        onSelectionChanged={onTabSelectionChanged}>
+        <Item title="Employee" icon="floppy">
+          <Form
+            id="form"
+            formData={employeeData}>
+            <SimpleItem dataField="name">
+              <Label render={labelTemplate('user')} />
+            </SimpleItem>
+            <SimpleItem dataField="position">
+              <Label render={labelTemplate('group')} />
+            </SimpleItem>
+            <SimpleItem dataField="hireDate" />
+            <SimpleItem dataField="officeNumber">
+              <Label render={labelTemplate('info')} />
+            </SimpleItem>
+          </Form>
+        </Item>
+        <Item title="Notes" icon="comment">
+          <TextArea
+            id="textArea"
+            defaultValue={employeeData.notes}
+          />
+        </Item>
+        <Item title="Role" icon="isnotblank" badge="new">
+          <RadioGroup
+            id="radioGroup"
+            items={employeeData.roles}
+            defaultValue={employeeData.roles[0]}
+          />
+        </Item>
+      </TabPanel>
+
+      <RadioGroup
+        items={tabNames}
+        value={tabNames[selectedTabIndex]}
+        layout="horizontal"
+        onValueChanged={onRadioGroupValueChanged}
+      />
     </div>
   );
 }
