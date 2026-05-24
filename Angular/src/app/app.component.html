@@ -19,11 +19,11 @@
           <dxi-item dataField="officeNumber">
             <dxo-label template="officeNumber"></dxo-label>
           </dxi-item>
-          <ng-container *ngFor="let label of labelTemplates">
-            <div *dxTemplate="let data of label.name">
-              <div><i class="dx-icon {{ label.icon }}"></i>{{ data.text }}</div>
-            </div>
-          </ng-container>
+          @for (label of labelTemplates; track label) {
+          <div *dxTemplate="let data of label.name">
+            <div><i class="dx-icon {{ label.icon }}"></i>{{ data.text }}</div>
+          </div>
+          }
         </dx-form>
       </div>
     </dxi-item>
