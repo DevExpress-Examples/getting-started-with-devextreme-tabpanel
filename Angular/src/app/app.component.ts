@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 import { DxRadioGroupTypes } from 'devextreme-angular/ui/radio-group';
 
 import { DxTabPanelModule } from 'devextreme-angular/ui/tab-panel';
+import { DxRadioGroupModule } from 'devextreme-angular/ui/radio-group';
+import { DxTextAreaModule } from 'devextreme-angular/ui/text-area';
+import { DxFormModule } from 'devextreme-angular/ui/form';
 
 @Component({
     selector: 'app-root',
-    imports: [DxTabPanelModule],
+    imports: [DxTabPanelModule, DxRadioGroupModule, DxTextAreaModule, DxFormModule],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
