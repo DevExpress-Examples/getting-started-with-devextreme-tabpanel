@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { DxRadioGroupTypes } from 'devextreme-angular/ui/radio-group';
 
 import { DxTabPanelModule } from 'devextreme-angular/ui/tab-panel';
@@ -10,6 +10,7 @@ import { DxFormModule } from 'devextreme-angular/ui/form';
     selector: 'app-root',
     imports: [DxTabPanelModule, DxRadioGroupModule, DxTextAreaModule, DxFormModule],
     templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
